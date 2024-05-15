@@ -59,69 +59,6 @@ Replace `your_finnhub_api_key` with your actual Finnhub API key.
 
 Ensure Docker is running on your system. The Docker setup includes both the application and a PostgreSQL database.
 
-### Docker Compose
-
-The Docker Compose configuration is set to build and run the application along with a PostgreSQL database. Ensure your `docker-compose.yml` is set up as follows:
-
-```yaml
-version: '3.8'
-
-services:
-  app:
-    build: .
-    ports:
-      - "3000:3000"
-    environment:
-      - FINNHUB_API_KEY=${FINNHUB_API_KEY}
-      - DATABASE_URL=postgresql://postgres:postgres@db:5432/mydatabase
-      - PORT=3000
-    depends_on:
-      - db
-  db:
-    image: postgres:13
-    environment:
-      POSTGRES_USER: ${DB_USER}
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
-      POSTGRES_DB: ${DB_NAME}
-    volumes:
-      - postgres-data:/var/lib/postgresql/data
-
-volumes:
-  postgres-data:
-```
-### Dockerfile
-
-Create a file named Dockerfile in the root of your project with the following content:
-```
-# Use the official Node.js image as a base
-FROM node:16
-
-# Set the working directory in the container
-WORKDIR /app
-
-# Copy the package.json and package-lock.json files to the container
-COPY package*.json ./
-
-# Install the dependencies
-RUN npm install
-
-# Copy the rest of the application code to the container
-COPY . .
-
-# Generate the Prisma client
-RUN npx prisma generate
-
-# Expose the port the app runs on
-EXPOSE 3000
-
-# Define the environment variable
-ENV PORT=3000
-
-# Command to run the application
-CMD ["npm", "run", "dev"]
-
-```
-
 ### Build and Run Docker Containers
 
 Rebuild and run your Docker containers:
