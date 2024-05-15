@@ -2,17 +2,18 @@
 
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 ![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 ![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 
-This is a Node.js application that tracks stock prices using the Finnhub API and stores data in a PostgreSQL database. The application uses Prisma as an ORM to interact with the database.
+This is a Node.js application that tracks stock prices using the Finnhub API and stores data in a PostgreSQL database. The application uses Prisma as an ORM to interact with the database and is written in TypeScript.
 
 ## Prerequisites
 
 - [Docker](https://www.docker.com/get-started) and [Docker Compose](https://docs.docker.com/compose/install/)
 - [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/get-npm) (for local development)
-
+- [PostgreSQL](https://www.postgresql.org/download/) (for local development if not using Docker)
 
 ## Setup
 
